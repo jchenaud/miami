@@ -14,6 +14,7 @@ public class Ennemi : MonoBehaviour {
 		
 	// }
 	GameObject player;
+	public float speed;
 	Rigidbody2D  rb;
 	public bool fight = false;
 	void Start () {
@@ -34,7 +35,7 @@ public class Ennemi : MonoBehaviour {
 			Vector2 vel = Vector2.zero;
 			Vector2 target_dir = player.transform.position - transform.position;
 			vel = target_dir * 1;
-			rb.velocity = vel;
+			rb.velocity = vel * speed;
 			Vector3 dir = player.transform.position - transform.position;
 			//transform.rotation;
 			float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
