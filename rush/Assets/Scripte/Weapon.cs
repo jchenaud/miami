@@ -12,6 +12,8 @@ public class Weapon : MonoBehaviour
 	public int ammos;
 	public bool infinityAmmos;
 	public string nameWeapon;
+	public AudioClip fireSound;
+	AudioSource audioSource;
 	float fireRateTime;
 	Sprite initSprite;
 	GameObject weaponPos;
@@ -24,6 +26,7 @@ public class Weapon : MonoBehaviour
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		initSprite = spriteRenderer.sprite;
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	void Update ()
@@ -60,6 +63,7 @@ public class Weapon : MonoBehaviour
 
 	void Shoot()
 	{
+		audioSource.PlayOneShot(fireSound, 0.3f);
 		fireRateTime = 0.0f;
 		GameObject go = Instantiate(bullet);
 		go.transform.position = weaponPos.transform.position;
