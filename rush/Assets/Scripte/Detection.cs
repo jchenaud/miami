@@ -12,6 +12,8 @@ public class Detection : MonoBehaviour {
 	public float max_d;
 	public float angle;
 
+	public float fov;
+
 	void Start () {
 		player  = GameObject.FindGameObjectWithTag("Player");
 	}
@@ -28,10 +30,10 @@ public class Detection : MonoBehaviour {
 		{
 			Vector2 targetDir = player.transform.position - transform.position;
         	Vector2 forward = transform.up;
-			 angle = Vector2.SignedAngle(targetDir, forward);
+			 angle = (Vector2.SignedAngle(targetDir, forward)) ;
 			//angle  = Vector2.SignedAngle(transform.position,  player.transform.position - transform.position);
-			Debug.Log(angle);
-			if(angle >= -60 && angle <= 60)
+			// Debug.Log(angle);
+			if(angle >= 180-fov || angle <= -180 + fov)
 			{
 				RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position);
 				if(hit && hit.transform.tag == "Player")
