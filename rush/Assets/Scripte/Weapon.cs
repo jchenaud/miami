@@ -9,12 +9,17 @@ public class Weapon : MonoBehaviour
 	public float fireRate;
 	public float bulletSpeed;
 	float fireRateTime;
+	Sprite initSprite;
 	GameObject weaponPos;
 	Vector2 posThrow;
+	SpriteRenderer spriteRenderer;
+	float throwSpeed;
+	float rotationZ;
 
 	void Start()
 	{
-
+		spriteRenderer = GetComponent<SpriteRenderer>();
+		initSprite = spriteRenderer.sprite;
 	}
 
 	void Update ()
@@ -31,7 +36,22 @@ public class Weapon : MonoBehaviour
 				go.transform.rotation = weaponPos.transform.rotation;
 				go.GetComponent<Bullet>().speed = bulletSpeed;
 			}
+			if (Input.GetMouseButton(1) && fireRateTime > fireRate)
+			{
+				spriteRenderer.sprite = initSprite;
+				weaponPos = null;
+				posThrow = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				throwSpeed = 10.0f;
+			}
 			fireRateTime += Time.deltaTime;
+		}
+		else if (throwSpeed > 0.0f)
+		{
+			transform.position = Vector2.MoveTowards(transform.position, posThrow, throwSpeed * Time.deltaTime);
+			transform.rotation = Quaternion.Euler(0, 0, rotationZ);
+			rotationZ -= 20.0f;
+			if (Vector2.Distance(transform.position, posThrow) < 0.1f)
+				throwSpeed = 0.0f;
 		}
 	}
 
@@ -42,11 +62,11 @@ public class Weapon : MonoBehaviour
 			if (!weaponPos && Input.GetKeyDown(KeyCode.E))
 			{
 				Player player = other.gameObject.GetComponent<Player>();
-				// gameObject.transform.parent = player.weaponPos.transform;
-				// transform.rotation = Quaternion.identity;
-				GetComponent<SpriteRenderer>().sprite = spriteGet;
+				spriteRenderer.sprite = spriteGet;
 				weaponPos = player.weaponPos;
 			}
 		}
+		else
+			throwSpeed = 0.0f;
 	}
 }
