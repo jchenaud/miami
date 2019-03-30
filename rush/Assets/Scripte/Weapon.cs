@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+	Player player;
 	public Sprite spriteGet;
 	public GameObject bullet;
 	public float fireRate;
@@ -42,6 +43,7 @@ public class Weapon : MonoBehaviour
 				weaponPos = null;
 				posThrow = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				throwSpeed = 10.0f;
+				player.haveWeapon = false;
 			}
 			fireRateTime += Time.deltaTime;
 		}
@@ -61,9 +63,12 @@ public class Weapon : MonoBehaviour
 		{
 			if (!weaponPos && Input.GetKeyDown(KeyCode.E))
 			{
-				Player player = other.gameObject.GetComponent<Player>();
+				player = other.gameObject.GetComponent<Player>();
+				if (player.haveWeapon)
+					return ;
 				spriteRenderer.sprite = spriteGet;
 				weaponPos = player.weaponPos;
+				player.haveWeapon = true;
 			}
 		}
 		else

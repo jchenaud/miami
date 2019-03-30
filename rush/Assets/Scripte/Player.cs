@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
 	public float speed = 10.0f;
 	public GameObject weaponPos;
+	public bool haveWeapon;
 	Rigidbody2D rb;
 
 	void Start()
