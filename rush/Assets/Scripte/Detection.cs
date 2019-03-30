@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+
 
 public class Detection : MonoBehaviour {
 
@@ -13,9 +15,12 @@ public class Detection : MonoBehaviour {
 	public float angle;
 
 	public float fov;
+	public Action Fight;
+	Ennemi ennemi;
 
 	void Start () {
 		player  = GameObject.FindGameObjectWithTag("Player");
+		ennemi = gameObject.GetComponent<Ennemi>();
 	}
 	
 	// Update is called once per frame
@@ -25,7 +30,7 @@ public class Detection : MonoBehaviour {
 		if(D > max_d) // si le joueur et trop loin 
 			return;
 		if(D < min_d) // si joeur tres proche
-			Debug.Log("atack");
+			ennemi.attack(); //Debug.Log("atack");
 		else // si joeur et potentiellement visible
 		{
 			Vector2 targetDir = player.transform.position - transform.position;
@@ -38,6 +43,7 @@ public class Detection : MonoBehaviour {
 				RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position);
 				if(hit && hit.transform.tag == "Player")
 				{
+					ennemi.attack(); //Debug.Log("atack");
 					Debug.Log("atack");
 				}
 				else
