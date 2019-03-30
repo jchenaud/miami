@@ -3,24 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Ennemi : MonoBehaviour {
-
-	// // Use this for initialization
-	// void Start () {
-		
-	// }
-	
-	// // Update is called once per frame
-	// void Update () {
-		
-	// }
+	public List<Sprite> listHead;
+	public List<Sprite> listBody;
+	public SpriteRenderer head;
+	public SpriteRenderer body;
 	GameObject player;
 	public float speed;
 	Rigidbody2D  rb;
 	public bool fight = false;
-	void Start () {
+
+	void Start ()
+	{
 		fight = false;
 		player  = GameObject.FindGameObjectWithTag("Player");
 		rb = GetComponent<Rigidbody2D>();
+		head.sprite = listHead[Random.Range(0, listHead.Count - 1)];
+		body.sprite = listBody[Random.Range(0, listBody.Count - 1)];
 	}
 
 	public void attack()

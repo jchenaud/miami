@@ -128,6 +128,7 @@ MonoBehaviour:
   infinityAmmos: 0
   nameWeapon: Magnum
   fireSound: {fileID: 8300000, guid: 1a0a9d8d1694944c1a195730836eb819, type: 3}
+  ejectSound: {fileID: 8300000, guid: 524ddaeab25d84e5db2258e397f9f900, type: 3}
 --- !u!82 &5715767331800421658
 AudioSource:
   m_ObjectHideFlags: 0

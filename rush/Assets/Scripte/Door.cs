@@ -7,10 +7,6 @@ public class Door : MonoBehaviour {
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
-        rb.centerOfMass = Vector3.zero;
-	}
-	
-	void Update () {
-		
+		rb.centerOfMass = Vector3.zero;
 	}
 }

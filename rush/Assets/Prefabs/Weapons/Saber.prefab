@@ -128,6 +128,7 @@ MonoBehaviour:
   infinityAmmos: 1
   nameWeapon: Saber
   fireSound: {fileID: 8300000, guid: 48d68d12751aa44cb87bfa4f2ca98bb6, type: 3}
+  ejectSound: {fileID: 8300000, guid: 524ddaeab25d84e5db2258e397f9f900, type: 3}
 --- !u!82 &9078055219855713892
 AudioSource:
   m_ObjectHideFlags: 0

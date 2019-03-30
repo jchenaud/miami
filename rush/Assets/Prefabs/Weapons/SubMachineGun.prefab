@@ -128,6 +128,7 @@ MonoBehaviour:
   infinityAmmos: 0
   nameWeapon: Machine Gun
   fireSound: {fileID: 8300000, guid: d27266dbeb98e4717a95f991054745c7, type: 3}
+  ejectSound: {fileID: 8300000, guid: 524ddaeab25d84e5db2258e397f9f900, type: 3}
 --- !u!82 &7519001567736772157
 AudioSource:
   m_ObjectHideFlags: 0

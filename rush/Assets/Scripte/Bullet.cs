@@ -12,13 +12,13 @@ public class Bullet : MonoBehaviour
 		Vector3 rot = transform.rotation.eulerAngles;
 		rot.z -= 90;
 		transform.rotation = Quaternion.Euler(rot);
+		if (lifeTime > 0.0f)
+			StartCoroutine(RoutineDestroy());
 	}
-	
+
 	void Update ()
 	{
 		transform.position += transform.right * speed * Time.deltaTime;
-		if (lifeTime > 0.0f)
-			StartCoroutine(RoutineDestroy());
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
