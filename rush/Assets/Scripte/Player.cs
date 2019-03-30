@@ -1,22 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Player : MonoBehaviour
 {
 	public float speed = 10.0f;
+	public GameObject weaponPos;
+	Rigidbody2D rb;
+	Action moveEvent;
+
+	void Start()
+	{
+		rb = GetComponent<Rigidbody2D>();
+	}
+
+	void FixedUpdate()
+	{
+		Vector3 vel = Vector2.zero;
+		if (Input.GetKey(KeyCode.W))
+		{
+			vel.y = speed;
+			if (moveEvent !=null)
+				moveEvent();
+		}
+		if (Input.GetKey(KeyCode.S))
+			vel.y = -speed;
+		if (Input.GetKey(KeyCode.D))
+			vel.x = speed;
+		if (Input.GetKey(KeyCode.A))
+			vel.x = -speed;
+		rb.velocity = vel;
+		
+	}
 
 	void Update () {
-		Vector3 newPos = transform.position;
-		if (Input.GetKey(KeyCode.W))
-			newPos.y += speed * Time.deltaTime;
-		if (Input.GetKey(KeyCode.S))
-			newPos.y -= speed * Time.deltaTime;
-		if (Input.GetKey(KeyCode.D))
-			newPos.x += speed * Time.deltaTime;
-		if (Input.GetKey(KeyCode.A))
-			newPos.x -= speed * Time.deltaTime;
-		transform.position = newPos;
 
 		Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		Vector3 dir = pos - transform.position;
