@@ -9,6 +9,15 @@ public class Player : MonoBehaviour
 	public GameObject weaponPos;
 	public bool haveWeapon;
 	Rigidbody2D rb;
+	public static Player instance;
+	public static Action onWinGameEvent;
+	public bool win;
+
+	void Awake()
+	{
+		onWinGameEvent = null;
+		instance = this;
+	}
 
 	void Start()
 	{
@@ -17,6 +26,11 @@ public class Player : MonoBehaviour
 
 	void FixedUpdate()
 	{
+		if (win)
+		{
+			rb.velocity = Vector2.zero;
+			return ;
+		}
 		Vector2 vel = Vector2.zero;
 		if (Input.GetKey(KeyCode.W))
 			vel.y = speed;
@@ -27,11 +41,12 @@ public class Player : MonoBehaviour
 		if (Input.GetKey(KeyCode.A))
 			vel.x = -speed;
 		rb.velocity = vel;
-		
 	}
 
-	void Update () {
-
+	void Update ()
+	{
+		if (win)
+			return ;
 		Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		Vector3 dir = pos - transform.position;
 		float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -40,5 +55,16 @@ public class Player : MonoBehaviour
 		Vector3 posCamera = transform.position;
 		posCamera.z = -10;
 		Camera.main.transform.position = posCamera;
+	}
+
+	void OnCollisionEnter2D(Collision2D collisionInfo)
+	{
+		if (collisionInfo.gameObject.tag == "end car")
+		{
+			Debug.Log("win");
+			if (onWinGameEvent != null)
+				onWinGameEvent();
+			win = true;
+		}
 	}
 }

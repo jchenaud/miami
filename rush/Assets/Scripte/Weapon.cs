@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour
 	public bool infinityAmmos;
 	public string nameWeapon;
 	public AudioClip fireSound;
+	public AudioClip ejectSound;
 	AudioSource audioSource;
 	float fireRateTime;
 	Sprite initSprite;
@@ -59,6 +60,7 @@ public class Weapon : MonoBehaviour
 		throwSpeed = 10.0f;
 		player.haveWeapon = false;
 		GameUi.instance.weaponCurrent = null;
+		audioSource.PlayOneShot(ejectSound, 0.3f);
 	}
 
 	void Shoot()
