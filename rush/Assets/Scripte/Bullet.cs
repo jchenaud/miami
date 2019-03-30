@@ -5,19 +5,34 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
 	[HideInInspector] public float speed;
+	public float lifeTime;
+
+	void Start()
+	{
+		Vector3 rot = transform.rotation.eulerAngles;
+		rot.z -= 90;
+		transform.rotation = Quaternion.Euler(rot);
+	}
 	
 	void Update ()
 	{
-		transform.position += -transform.up * speed * Time.deltaTime;
+		transform.position += transform.right * speed * Time.deltaTime;
+		if (lifeTime > 0.0f)
+			StartCoroutine(RoutineDestroy());
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		Debug.Log(other.gameObject.tag);
 		if (other.gameObject.tag != "Player" && other.gameObject.tag != "weapon")
 		{
 			Debug.Log(other.gameObject.name);
 			Destroy(gameObject);
 		}
+	}
+
+	IEnumerator RoutineDestroy()
+	{
+		yield return new WaitForSeconds(lifeTime);
+		Destroy(gameObject);
 	}
 }

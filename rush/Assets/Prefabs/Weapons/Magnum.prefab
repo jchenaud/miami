@@ -82,6 +82,7 @@ MonoBehaviour:
   bullet: {fileID: 1102113779067584, guid: 9bffa032297754a8f951f19baf085776, type: 2}
   fireRate: 0.08
   bulletSpeed: 10
+  ammos: 23
 --- !u!212 &212457967491625680
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -9,6 +9,8 @@ public class Weapon : MonoBehaviour
 	public GameObject bullet;
 	public float fireRate;
 	public float bulletSpeed;
+	public int ammos;
+	public bool infinityAmmos;
 	float fireRateTime;
 	Sprite initSprite;
 	GameObject weaponPos;
@@ -29,22 +31,10 @@ public class Weapon : MonoBehaviour
 		{
 			transform.position = weaponPos.transform.position;
 			transform.rotation = weaponPos.transform.rotation;
-			if (Input.GetMouseButton(0) && fireRateTime > fireRate)
-			{
-				fireRateTime = 0.0f;
-				GameObject go = Instantiate(bullet);
-				go.transform.position = weaponPos.transform.position;
-				go.transform.rotation = weaponPos.transform.rotation;
-				go.GetComponent<Bullet>().speed = bulletSpeed;
-			}
+			if (Input.GetMouseButton(0) && fireRateTime > fireRate && (ammos > 0 || infinityAmmos))
+				Shoot();
 			if (Input.GetMouseButton(1) && fireRateTime > fireRate)
-			{
-				spriteRenderer.sprite = initSprite;
-				weaponPos = null;
-				posThrow = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-				throwSpeed = 10.0f;
-				player.haveWeapon = false;
-			}
+				Throw();
 			fireRateTime += Time.deltaTime;
 		}
 		else if (throwSpeed > 0.0f)
@@ -55,6 +45,25 @@ public class Weapon : MonoBehaviour
 			if (Vector2.Distance(transform.position, posThrow) < 0.1f)
 				throwSpeed = 0.0f;
 		}
+	}
+
+	void Throw()
+	{
+		spriteRenderer.sprite = initSprite;
+		weaponPos = null;
+		posThrow = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		throwSpeed = 10.0f;
+		player.haveWeapon = false;
+	}
+
+	void Shoot()
+	{
+		fireRateTime = 0.0f;
+		GameObject go = Instantiate(bullet);
+		go.transform.position = weaponPos.transform.position;
+		go.transform.rotation = weaponPos.transform.rotation;
+		go.GetComponent<Bullet>().speed = bulletSpeed;
+		ammos -= 1;
 	}
 
 	void OnTriggerStay2D(Collider2D other)
