@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
 	public float speed = 10.0f;
 	public GameObject weaponPos;
 	Rigidbody2D rb;
-	Action moveEvent;
 
 	void Start()
 	{
@@ -17,13 +16,9 @@ public class Player : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		Vector3 vel = Vector2.zero;
+		Vector2 vel = Vector2.zero;
 		if (Input.GetKey(KeyCode.W))
-		{
 			vel.y = speed;
-			if (moveEvent !=null)
-				moveEvent();
-		}
 		if (Input.GetKey(KeyCode.S))
 			vel.y = -speed;
 		if (Input.GetKey(KeyCode.D))

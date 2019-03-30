@@ -275,12 +275,11 @@ GameObject:
   m_Component:
   - component: {fileID: 141218704}
   - component: {fileID: 141218707}
-  - component: {fileID: 141218708}
   - component: {fileID: 141218706}
   - component: {fileID: 141218705}
   m_Layer: 0
   m_Name: Weapon
-  m_TagString: Untagged
+  m_TagString: weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -292,7 +291,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 141218703}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.43, z: 0}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -310,6 +309,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteGet: {fileID: 21300000, guid: 998863868c48d4acb8825638c9fe303c, type: 3}
+  bullet: {fileID: 1102113779067584, guid: 9bffa032297754a8f951f19baf085776, type: 2}
+  fireRate: 0.07
+  bulletSpeed: 10
 --- !u!212 &141218706
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -379,26 +381,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.78125, y: 0.5}
   m_EdgeRadius: 0
---- !u!50 &141218708
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 141218703}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!4 &176971798 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4622123667259182, guid: 2aac727610f554cecac3cd6771fbfed3,
@@ -541,7 +523,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4728223105137048, guid: dd3794434e090455d989f596b4d87e15, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728223105137048, guid: dd3794434e090455d989f596b4d87e15, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1085621262898396, guid: dd3794434e090455d989f596b4d87e15, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 61914165691866436, guid: dd3794434e090455d989f596b4d87e15, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: dd3794434e090455d989f596b4d87e15, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &590097815
