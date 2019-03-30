@@ -83,6 +83,8 @@ MonoBehaviour:
   fireRate: 0.4
   bulletSpeed: 20
   ammos: 15
+  infinityAmmos: 0
+  nameWeapon: Sniper
 --- !u!212 &212331408032742456
 SpriteRenderer:
   m_ObjectHideFlags: 1

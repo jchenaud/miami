@@ -83,6 +83,8 @@ MonoBehaviour:
   fireRate: 0.06
   bulletSpeed: 12
   ammos: 40
+  infinityAmmos: 0
+  nameWeapon: Machine Gun
 --- !u!212 &212941324768111184
 SpriteRenderer:
   m_ObjectHideFlags: 1

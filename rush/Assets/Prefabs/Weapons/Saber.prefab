@@ -84,6 +84,7 @@ MonoBehaviour:
   bulletSpeed: 1
   ammos: 0
   infinityAmmos: 1
+  nameWeapon: Saber
 --- !u!212 &212529292491688588
 SpriteRenderer:
   m_ObjectHideFlags: 1

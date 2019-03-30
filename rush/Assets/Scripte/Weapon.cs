@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
 	public float bulletSpeed;
 	public int ammos;
 	public bool infinityAmmos;
+	public string nameWeapon;
 	float fireRateTime;
 	Sprite initSprite;
 	GameObject weaponPos;
@@ -54,6 +55,7 @@ public class Weapon : MonoBehaviour
 		posThrow = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		throwSpeed = 10.0f;
 		player.haveWeapon = false;
+		GameUi.instance.weaponCurrent = null;
 	}
 
 	void Shoot()
@@ -65,7 +67,6 @@ public class Weapon : MonoBehaviour
 		go.GetComponent<Bullet>().speed = bulletSpeed;
 		ammos -= 1;
 	}
-
 	void OnTriggerStay2D(Collider2D other)
 	{
 		if (other.gameObject.tag == "Player")
@@ -78,6 +79,7 @@ public class Weapon : MonoBehaviour
 				spriteRenderer.sprite = spriteGet;
 				weaponPos = player.weaponPos;
 				player.haveWeapon = true;
+				GameUi.instance.weaponCurrent = this;
 			}
 		}
 		else

@@ -25,7 +25,6 @@ public class Bullet : MonoBehaviour
 	{
 		if (other.gameObject.tag != "Player" && other.gameObject.tag != "weapon")
 		{
-			Debug.Log(other.gameObject.name);
 			Destroy(gameObject);
 		}
 	}

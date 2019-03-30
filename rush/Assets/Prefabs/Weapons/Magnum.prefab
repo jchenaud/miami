@@ -83,6 +83,8 @@ MonoBehaviour:
   fireRate: 0.08
   bulletSpeed: 10
   ammos: 23
+  infinityAmmos: 0
+  nameWeapon: Magnum
 --- !u!212 &212457967491625680
 SpriteRenderer:
   m_ObjectHideFlags: 1
