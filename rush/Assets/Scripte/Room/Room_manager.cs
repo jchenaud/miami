@@ -48,7 +48,6 @@ public class Room_manager : MonoBehaviour {
 	{
 		GameObject child;
 
-		List <int> l  = new List<int>();//find_connection(all_room[depart]);
 		// if(l.Contains(cible) == true)
 		// {
 			for (int i = 0; i < transform.GetChild(depart).transform.childCount; i++) 
