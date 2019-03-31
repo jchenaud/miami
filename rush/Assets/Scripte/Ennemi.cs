@@ -30,7 +30,6 @@ public class Ennemi : MonoBehaviour {
 		player  = GameObject.Find("player");
 		room_manager  = GameObject.Find("Room_manager");
 
-		Debug.Log(player);
 		rb = GetComponent<Rigidbody2D>();
 		head.sprite = listHead[Random.Range(0, listHead.Count - 1)];
 		body.sprite = listBody[Random.Range(0, listBody.Count - 1)];

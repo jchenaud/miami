@@ -29,7 +29,6 @@ public class Patrouille : MonoBehaviour {
 
 		}
 			rb = GetComponent<Rigidbody2D>();
-		print(pat_point.Count);
 	}
 	
 	// Update is called once per frame
@@ -47,9 +46,7 @@ public class Patrouille : MonoBehaviour {
 				else
 				{
 					acend = true;
-					
 					i++;
-					print(i);
 				}
 			}
 			if(acend)
@@ -63,8 +60,6 @@ public class Patrouille : MonoBehaviour {
 				transform.rotation = Quaternion.AngleAxis(angle + 90 , Vector3.forward);
 				if (Vector2.Distance(transform.position, pat_point[i].position) < 0.2f)
 				{
-					print(i);
-					print(pat_point.Count);
 			
 					if(pat_point.Count - 1 == i)
 						im_arrive = true;
