@@ -11,6 +11,7 @@ public class GameUi : MonoBehaviour
 	public Text textNameWeapon;
 	public Text textAmmoWeapon;
 	public Text textNextLevel;
+	public Text textKill;
 	public GameObject pannelClear;
 	public GameObject pannelGameOver;
 
@@ -48,6 +49,7 @@ public class GameUi : MonoBehaviour
 		pannelClear.SetActive(true);
 		if (SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCount)
 			textNextLevel.text = "Menu";
+		textKill.text = string.Format("Kill : {0}", Player.instance.kill.ToString());
 	}
 
 	public void OnLoose()

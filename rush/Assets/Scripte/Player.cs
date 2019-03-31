@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
 	AudioSource audioSource;
 	public int room;
 	public bool die;
+	public int kill;
 
 	void Awake()
 	{
@@ -69,6 +70,8 @@ public class Player : MonoBehaviour
 
 	public void Die()
 	{
+		if (win)
+			return ;
 		audioSource.PlayOneShot(clipLoose);
 		Debug.Log("loose");
 		if (onLooseGameEvent != null)
