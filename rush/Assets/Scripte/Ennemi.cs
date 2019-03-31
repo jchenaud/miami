@@ -33,6 +33,14 @@ public class Ennemi : MonoBehaviour {
 		body.sprite = listBody[Random.Range(0, listBody.Count - 1)];
 	}
 
+	public void Die()
+	{
+		// Vector3 pos = transform.position;
+		weapon.Throw(transform.position);
+		weapon.ennemy = false;
+		Destroy(this.gameObject);
+	}
+
 	public void attack()
 	{
 		fight = true;

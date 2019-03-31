@@ -43,10 +43,10 @@ public class Weapon : MonoBehaviour
 			transform.rotation = weaponPos.transform.rotation;
 			if (!ennemy)
 			{
-				if (Input.GetMouseButton(0) && fireRateTime > fireRate && (ammos > 0 || infinityAmmos))
+				if (Input.GetMouseButton(0))
 					Shoot();
-				if (Input.GetMouseButton(1) && fireRateTime > fireRate)
-					Throw();
+				if (Input.GetMouseButton(1))
+					Throw(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 			}
 			fireRateTime += Time.deltaTime;
 		}
@@ -60,19 +60,24 @@ public class Weapon : MonoBehaviour
 		}
 	}
 
-	void Throw()
+	public void Throw(Vector3 pos)
 	{
 		spriteRenderer.sprite = initSprite;
 		weaponPos = null;
-		posThrow = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		posThrow = pos;
 		throwSpeed = 10.0f;
-		player.haveWeapon = false;
-		GameUi.instance.weaponCurrent = null;
-		audioSource.PlayOneShot(ejectSound, 0.3f);
+		if (!ennemy)
+		{
+			player.haveWeapon = false;
+			GameUi.instance.weaponCurrent = null;
+			audioSource.PlayOneShot(ejectSound, 0.3f);
+		}
 	}
 
 	public void Shoot()
 	{
+		if (fireRateTime <= fireRate && (ammos <= 0 || !infinityAmmos))
+			return ;
 		audioSource.PlayOneShot(fireSound, 0.3f);
 		fireRateTime = 0.0f;
 		GameObject go = Instantiate(bullet);

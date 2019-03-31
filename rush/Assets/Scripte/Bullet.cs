@@ -32,12 +32,11 @@ public class Bullet : MonoBehaviour
 			Destroy(gameObject);
 		if (!ennemy && other.GetComponent<Ennemi>() != null)
 		{
-			Destroy(other.gameObject);
+			other.GetComponent<Ennemi>().Die();
 		}
 		if (ennemy && other.GetComponent<Player>() != null)
 		{
 			other.GetComponent<Player>().Die();
-			Destroy(other.gameObject);
 		}
 	}
 	
