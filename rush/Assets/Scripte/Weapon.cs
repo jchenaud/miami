@@ -23,12 +23,14 @@ public class Weapon : MonoBehaviour
 	SpriteRenderer spriteRenderer;
 	float throwSpeed;
 	float rotationZ;
+	int defaultLayer;
 
 	void Start()
 	{
 		spriteRenderer = GetComponent<SpriteRenderer>();
 		initSprite = spriteRenderer.sprite;
 		audioSource = GetComponent<AudioSource>();
+		defaultLayer = gameObject.layer;
 	}
 
 	void Update ()
@@ -46,7 +48,10 @@ public class Weapon : MonoBehaviour
 				if (Input.GetMouseButton(0))
 					Shoot();
 				if (Input.GetMouseButton(1))
+				{
+					gameObject.layer = 0;
 					Throw(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+				}
 			}
 			fireRateTime += Time.deltaTime;
 		}
@@ -58,6 +63,8 @@ public class Weapon : MonoBehaviour
 			if (Vector2.Distance(transform.position, posThrow) < 0.1f)
 				throwSpeed = 0.0f;
 		}
+		if (throwSpeed == 0.0f)
+			gameObject.layer = defaultLayer;
 	}
 
 	public void Throw(Vector3 pos)
@@ -100,7 +107,9 @@ public class Weapon : MonoBehaviour
 	void OnTriggerStay2D(Collider2D other)
 	{
 		if (nameWeapon == "Saber" && throwSpeed > 0.0f && other.GetComponent<Ennemi>())
-			Destroy(other.gameObject);
+		{
+			other.GetComponent<Ennemi>().Die();
+		}
 		if (other.gameObject.tag == "Player")
 		{
 			if (!weaponPos && Input.GetKeyDown(KeyCode.E) && !ennemy)

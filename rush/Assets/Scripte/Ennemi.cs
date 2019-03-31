@@ -54,8 +54,9 @@ public class Ennemi : MonoBehaviour {
 
 	void CheckShoot()
 	{
-		if (Vector3.Distance(transform.position, Player.instance.transform.position) <= 20.0f && room_manager.GetComponent<Room_manager>().nexto_find_position_door(room,player.GetComponent<Player>().room) != Vector2.zero)
-			shoot = true;
+		if ((Vector3.Distance(transform.position, Player.instance.transform.position) <= 20.0f) &&
+				(room_manager.GetComponent<Room_manager>().nexto_find_position_door(room,player.GetComponent<Player>().room) != Vector2.zero || room == player.GetComponent<Player>().room))
+					shoot = true;
 	}
 
 	public void attack()
@@ -66,13 +67,21 @@ public class Ennemi : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (die || Player.instance.die)
+		{
+			rb.velocity = Vector2.zero;
 			return ;
+		}
 		if (room != player.GetComponent<Player>().room && fight ==  true)
 		{
 				fight =  false;
 				shoot =  true;
 				posi = Vector2.zero;
 		}
+		//  if(shoot == true  && room == player.GetComponent<Player>().room)
+		// {
+		// 	fight =  true;
+		// 	shoot =  false;
+		// }
 		if (fight == true && shoot == false)
 		{
 			shoot =  false;
@@ -99,6 +108,12 @@ public class Ennemi : MonoBehaviour {
 		{
 			if(posi == Vector2.zero)
 			{
+				if (room == player.GetComponent<Player>().room)
+				{
+					fight = true;
+					shoot = false;
+					return;
+				}
 				posi = room_manager.GetComponent<Room_manager>().nexto_find_position_door(room,player.GetComponent<Player>().room);
 				room = player.GetComponent<Player>().room;
 			}
