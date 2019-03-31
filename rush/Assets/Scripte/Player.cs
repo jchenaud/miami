@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 	public static Action onWinGameEvent;
 	public bool win;
 
+	public int room;
 	void Awake()
 	{
 		onWinGameEvent = null;

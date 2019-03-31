@@ -7,6 +7,9 @@ TagManager:
   - wall
   - weapon
   - end car
+  - room
+  - door_chekpoint
+  - enemi
   layers:
   - Default
   - TransparentFX
