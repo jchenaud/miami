@@ -93,7 +93,7 @@ public class Weapon : MonoBehaviour
 		if (!ennemy)
 		{
 			ammos -= 1;
-			if (Player.onShootGameEvent != null)
+			if (Player.onShootGameEvent != null && nameWeapon != "Saber")
 				Player.onShootGameEvent();
 		}
 	}
