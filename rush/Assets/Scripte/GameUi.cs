@@ -35,6 +35,7 @@ public class GameUi : MonoBehaviour
 		{
 			textNameWeapon.text = "No Weapon";
 			textAmmoWeapon.text = "-";
+			textAmmoWeapon.color = Color.white;
 		}
 		else
 		{
@@ -42,7 +43,13 @@ public class GameUi : MonoBehaviour
 			if (weaponCurrent.infinityAmmos)
 				textAmmoWeapon.text = "∞";
 			else
+			{
 				textAmmoWeapon.text = weaponCurrent.ammos.ToString();
+				if (weaponCurrent.ammos == 0)
+					textAmmoWeapon.color = Color.red;
+				else
+					textAmmoWeapon.color = Color.white;
+			}
 		}
 	}
 
