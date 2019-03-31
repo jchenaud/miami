@@ -45,8 +45,11 @@ public class Detection : MonoBehaviour {
 				Debug.Log(hit.transform.name);
 				if(hit && hit.transform.tag == "Player")
 				{
-					ennemi.attack(); //Debug.Log("atack");
-					// Debug.Log("atack");
+					// if (ennemi.room == Player.instance.room)
+						ennemi.attack(); 
+					// else
+					// 	ennemi.shoot = true;
+
 				}
 				// else
 				//  	Debug.Log("i cant see nothing : somthing betwen  : " + hit.transform.name);
