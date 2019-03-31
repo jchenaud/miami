@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
 	public AudioClip clipLoose;
 	AudioSource audioSource;
 	public int room;
+	bool die;
 
 	void Awake()
 	{
@@ -35,7 +36,7 @@ public class Player : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if (win)
+		if (win || die)
 		{
 			rb.velocity = Vector2.zero;
 			return ;
