@@ -95,7 +95,7 @@ public class Ennemi : MonoBehaviour {
 				vel = Vector2.zero;
 				target_dir = posi - (Vector2) transform.position;
 				vel = target_dir * speed;
-				rb.velocity = new Vector2( Mathf.Clamp(vel.x,-2,2),Mathf.Clamp(vel.y,-2,2));
+				rb.velocity = new Vector2( Mathf.Clamp(vel.x,-4,4),Mathf.Clamp(vel.y,-4,4));
 				float angle = Mathf.Atan2(target_dir.y, target_dir.x) * Mathf.Rad2Deg;
 				transform.rotation = Quaternion.AngleAxis(angle + 90 , Vector3.forward);
 				if (Vector2.Distance(transform.position, posi) < 0.2f){
