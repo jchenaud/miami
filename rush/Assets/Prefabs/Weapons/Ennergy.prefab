@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61478584909159320}
   - component: {fileID: 82736125353723302}
   - component: {fileID: 114752276832873242}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ennergy
   m_TagString: weapon
   m_Icon: {fileID: 0}

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61728813320819778}
   - component: {fileID: 82159305276381836}
   - component: {fileID: 114311514767659302}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: SubMachineGun
   m_TagString: weapon
   m_Icon: {fileID: 0}
@@ -168,6 +168,8 @@ MonoBehaviour:
   nameWeapon: Machine Gun
   fireSound: {fileID: 8300000, guid: d27266dbeb98e4717a95f991054745c7, type: 3}
   ejectSound: {fileID: 8300000, guid: 524ddaeab25d84e5db2258e397f9f900, type: 3}
+  ennemy: 0
+  weaponPos: {fileID: 0}
 --- !u!212 &212137243875502588
 SpriteRenderer:
   m_ObjectHideFlags: 1

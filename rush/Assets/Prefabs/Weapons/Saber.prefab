@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61008805220473914}
   - component: {fileID: 82474235190379928}
   - component: {fileID: 114680788376965308}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Saber
   m_TagString: weapon
   m_Icon: {fileID: 0}
@@ -168,6 +168,8 @@ MonoBehaviour:
   nameWeapon: Saber
   fireSound: {fileID: 8300000, guid: 48d68d12751aa44cb87bfa4f2ca98bb6, type: 3}
   ejectSound: {fileID: 8300000, guid: 524ddaeab25d84e5db2258e397f9f900, type: 3}
+  ennemy: 0
+  weaponPos: {fileID: 0}
 --- !u!212 &212791171957375776
 SpriteRenderer:
   m_ObjectHideFlags: 1

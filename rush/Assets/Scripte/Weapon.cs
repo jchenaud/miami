@@ -41,10 +41,13 @@ public class Weapon : MonoBehaviour
 		{
 			transform.position = weaponPos.transform.position;
 			transform.rotation = weaponPos.transform.rotation;
-			if (Input.GetMouseButton(0) && fireRateTime > fireRate && (ammos > 0 || infinityAmmos))
-				Shoot();
-			if (Input.GetMouseButton(1) && fireRateTime > fireRate)
-				Throw();
+			if (!ennemy)
+			{
+				if (Input.GetMouseButton(0) && fireRateTime > fireRate && (ammos > 0 || infinityAmmos))
+					Shoot();
+				if (Input.GetMouseButton(1) && fireRateTime > fireRate)
+					Throw();
+			}
 			fireRateTime += Time.deltaTime;
 		}
 		else if (throwSpeed > 0.0f)
@@ -76,6 +79,7 @@ public class Weapon : MonoBehaviour
 		go.transform.position = weaponPos.transform.position;
 		go.transform.rotation = weaponPos.transform.rotation;
 		go.GetComponent<Bullet>().speed = bulletSpeed;
+		go.GetComponent<Bullet>().ennemy = ennemy;
 		if (!ennemy)
 			ammos -= 1;
 	}

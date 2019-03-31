@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61385372461287264}
   - component: {fileID: 82995918388467558}
   - component: {fileID: 114825527861754972}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sniper
   m_TagString: weapon
   m_Icon: {fileID: 0}
@@ -168,6 +168,8 @@ MonoBehaviour:
   nameWeapon: Sniper
   fireSound: {fileID: 8300000, guid: 41ba8b787dda34228adbcfeae0635a4c, type: 3}
   ejectSound: {fileID: 8300000, guid: 524ddaeab25d84e5db2258e397f9f900, type: 3}
+  ennemy: 0
+  weaponPos: {fileID: 0}
 --- !u!212 &212862079508832516
 SpriteRenderer:
   m_ObjectHideFlags: 1

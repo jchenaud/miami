@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61881152516536440}
   - component: {fileID: 82344949914164586}
   - component: {fileID: 114639936393131484}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Punch
   m_TagString: weapon
   m_Icon: {fileID: 0}
@@ -168,6 +168,8 @@ MonoBehaviour:
   nameWeapon: Punch
   fireSound: {fileID: 8300000, guid: bc2f9fa344b7e4fc4980b4e30e33cb08, type: 3}
   ejectSound: {fileID: 8300000, guid: 524ddaeab25d84e5db2258e397f9f900, type: 3}
+  ennemy: 0
+  weaponPos: {fileID: 0}
 --- !u!212 &212843422261576158
 SpriteRenderer:
   m_ObjectHideFlags: 1

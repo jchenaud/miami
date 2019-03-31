@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61647866069139026}
   - component: {fileID: 82049420476340396}
   - component: {fileID: 114700505995176878}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Magnum
   m_TagString: weapon
   m_Icon: {fileID: 0}
@@ -168,6 +168,8 @@ MonoBehaviour:
   nameWeapon: Magnum
   fireSound: {fileID: 8300000, guid: 1a0a9d8d1694944c1a195730836eb819, type: 3}
   ejectSound: {fileID: 8300000, guid: 524ddaeab25d84e5db2258e397f9f900, type: 3}
+  ennemy: 0
+  weaponPos: {fileID: 0}
 --- !u!212 &212159226990647930
 SpriteRenderer:
   m_ObjectHideFlags: 1

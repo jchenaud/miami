@@ -24,12 +24,19 @@ public class Bullet : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.gameObject.tag != "Player" && other.gameObject.tag != "weapon")
-		{
+		if (other.gameObject.tag == "weapon")
+			return ;
+		if (!ennemy && other.gameObject.tag != "Player")
 			Destroy(gameObject);
-		}
-		if (other.GetComponent<Ennemi>() != null)
+		if (ennemy && other.gameObject.tag != "enemi")
+			Destroy(gameObject);
+		if (!ennemy && other.GetComponent<Ennemi>() != null)
 		{
+			Destroy(other.gameObject);
+		}
+		if (ennemy && other.GetComponent<Player>() != null)
+		{
+			other.GetComponent<Player>().Die();
 			Destroy(other.gameObject);
 		}
 	}
