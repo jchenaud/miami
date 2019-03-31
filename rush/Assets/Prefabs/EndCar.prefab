@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4039335027489976}
   - component: {fileID: 212031781774696218}
   - component: {fileID: 61063978296581518}
+  - component: {fileID: 114859023536194414}
   m_Layer: 0
   m_Name: EndCar
   m_TagString: end car
@@ -66,6 +67,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3, y: 4}
   m_EdgeRadius: 0
+--- !u!114 &114859023536194414
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924039383750004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae06e70ea46604e33928ad580da9b26d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212031781774696218
 SpriteRenderer:
   m_ObjectHideFlags: 1
