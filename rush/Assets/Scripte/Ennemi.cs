@@ -18,7 +18,7 @@ public class Ennemi : MonoBehaviour {
 
 	public bool shoot;
 	public Weapon weapon;
-	bool die;
+	public bool die;
 
 	AudioSource audioSource;
 	Vector2 vel;

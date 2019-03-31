@@ -26,22 +26,23 @@ public class Detection : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		// Debug.Log(player);
+		if(ennemi.die)
+			return;
 		D =  Vector2.Distance((Vector2)transform.position,(Vector2)player.transform.position);
 		if(D > max_d) // si le joueur et trop loin 
 			return;
-		if(D < min_d) // si joeur tres proche
+		if(D < min_d && ennemi.room == Player.instance.room) // si joeur tres proche
 			ennemi.attack(); //Debug.Log("atack");
 		else // si joeur et potentiellement visible
 		{
 			Vector2 targetDir = player.transform.position - transform.position;
         	Vector2 forward = transform.up;
 			 angle = (Vector2.SignedAngle(targetDir, forward)) ;
-			// Debug.Log(angle);
 			if(angle >= 180-fov || angle <= -180 + fov)
 			{
 				layer_mask = ~(LayerMask.GetMask("enemi","room","weapon"));
 				RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position,Mathf.Infinity,layer_mask);
+				Debug.Log(hit.transform.name);
 				if(hit && hit.transform.tag == "Player")
 				{
 					ennemi.attack(); //Debug.Log("atack");
