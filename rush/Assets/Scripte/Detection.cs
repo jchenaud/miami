@@ -40,7 +40,7 @@ public class Detection : MonoBehaviour {
 			// Debug.Log(angle);
 			if(angle >= 180-fov || angle <= -180 + fov)
 			{
-				layer_mask = ~(LayerMask.GetMask("enemi","room"));
+				layer_mask = ~(LayerMask.GetMask("enemi","room","weapon"));
 				RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position,Mathf.Infinity,layer_mask);
 				if(hit && hit.transform.tag == "Player")
 				{
