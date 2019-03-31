@@ -84,6 +84,8 @@ public class Player : MonoBehaviour
 	{
 		if (collisionInfo.gameObject.tag == "end car")
 		{
+			if (win)
+				return ;
 			audioSource.PlayOneShot(clipWin);
 			Debug.Log("win");
 			if (onWinGameEvent != null)
