@@ -42,7 +42,7 @@ public class Detection : MonoBehaviour {
 			{
 				layer_mask = ~(LayerMask.GetMask("enemi","room","weapon"));
 				RaycastHit2D hit = Physics2D.Raycast(transform.position, player.transform.position - transform.position,Mathf.Infinity,layer_mask);
-				Debug.Log(hit.transform.name);
+				// Debug.Log(hit.transform.name);
 				if(hit && hit.transform.tag == "Player")
 				{
 					// if (ennemi.room == Player.instance.room)

@@ -25,6 +25,8 @@ public class Ennemi : MonoBehaviour {
 	Vector2 vel;
 	Vector2 target_dir;
 	Vector2 posi;
+
+	int player_tmp_room;
 	void Start ()
 	{
 		fight = false;
@@ -108,6 +110,8 @@ public class Ennemi : MonoBehaviour {
 		}
 		else if (shoot)
 		{
+			if (player_tmp_room != player.GetComponent<Player>().room)
+				posi = Vector2.zero;
 			if(posi == Vector2.zero)
 			{
 				if (room == player.GetComponent<Player>().room)
@@ -117,7 +121,8 @@ public class Ennemi : MonoBehaviour {
 					return;
 				}
 				posi = room_manager.GetComponent<Room_manager>().nexto_find_position_door(room,player.GetComponent<Player>().room);
-				room = player.GetComponent<Player>().room;
+				//room = player.GetComponent<Player>().room;
+				player_tmp_room = player.GetComponent<Player>().room;
 			}
 			if (posi != Vector2.zero)
 			{ 
@@ -128,12 +133,15 @@ public class Ennemi : MonoBehaviour {
 				float angle = Mathf.Atan2(target_dir.y, target_dir.x) * Mathf.Rad2Deg;
 				transform.rotation = Quaternion.AngleAxis(angle + 90 , Vector3.forward);
 				if (Vector2.Distance(transform.position, posi) < 0.2f){
+					room = player_tmp_room;
 			 		target_dir = player.transform.position - transform.position;
 					angle = Mathf.Atan2(target_dir.y, target_dir.x) * Mathf.Rad2Deg;
 					transform.rotation = Quaternion.AngleAxis(angle +90 , Vector3.forward);
 					shoot = false;
 					if (room == player.GetComponent<Player>().room)
 						fight =  true;
+					else 
+						fight = false;
 					posi = Vector2.zero;
 				}
 			}
