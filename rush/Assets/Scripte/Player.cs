@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
 
 	public void Die()
 	{
-		if (win)
+		if (win || die)
 			return ;
 		audioSource.PlayOneShot(clipLoose);
 		Debug.Log("loose");
