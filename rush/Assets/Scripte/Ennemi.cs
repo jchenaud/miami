@@ -114,8 +114,8 @@ public class Ennemi : MonoBehaviour {
 		}
 		else if (shoot)
 		{
-			if (player_tmp_room != player.GetComponent<Player>().room)
-				posi = Vector2.zero;
+			// if (player_tmp_room != player.GetComponent<Player>().room)
+			// 	posi = Vector2.zero;
 			if(posi == Vector2.zero)
 			{
 				if (room == player.GetComponent<Player>().room)
@@ -130,6 +130,8 @@ public class Ennemi : MonoBehaviour {
 			}
 			if (posi != Vector2.zero)
 			{ 
+				GetComponent<Patrouille>().enabled = false;
+
 				vel = Vector2.zero;
 				target_dir = posi - (Vector2) transform.position;
 				vel = target_dir * speed;
@@ -145,7 +147,11 @@ public class Ennemi : MonoBehaviour {
 					if (room == player.GetComponent<Player>().room)
 						fight =  true;
 					else 
+					{
 						fight = false;
+						shoot = true;
+						player_tmp_room = player.GetComponent<Player>().room;
+					}
 					posi = Vector2.zero;
 				}
 			}
