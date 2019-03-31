@@ -15,6 +15,8 @@ public class Ennemi : MonoBehaviour {
 	public int room;
 	public GameObject room_manager;
 
+	public bool shoot;
+
 	void Start ()
 	{
 		fight = false;
@@ -49,6 +51,8 @@ public class Ennemi : MonoBehaviour {
 		// Debug.Log(room);
 		// Debug.Log(player.name);
 		// Debug.Log(player.GetComponent<Player>().room);
-		Debug.Log(room_manager.GetComponent<Room_manager>().nexto_find_position_door(room,player.GetComponent<Player>().room).x);
+		// else if (shoot)
+		// 	Vector2 posi = new Vector2();
+		// 	posi = room_manager.GetComponent<Room_manager>().nexto_find_position_door(room,player.GetComponent<Player>().room);
 	}
 }

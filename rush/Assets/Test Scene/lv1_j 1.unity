@@ -4934,46 +4934,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114280428273714266, guid: f08ddd8bcf3434cf497550c2aaae2595,
-        type: 2}
-      propertyPath: head
-      value: 
-      objectReference: {fileID: 1559790220, guid: b900bee774dfe49398fa3af3d2cc61c5,
-        type: 2}
-    - target: {fileID: 114280428273714266, guid: f08ddd8bcf3434cf497550c2aaae2595,
-        type: 2}
-      propertyPath: body
-      value: 
-      objectReference: {fileID: 1061289152, guid: b900bee774dfe49398fa3af3d2cc61c5,
-        type: 2}
     - target: {fileID: 114989300767285422, guid: f08ddd8bcf3434cf497550c2aaae2595,
         type: 2}
       propertyPath: patrouille_lst
       value: 
       objectReference: {fileID: 2135762169}
-    - target: {fileID: 1534973275269684, guid: f08ddd8bcf3434cf497550c2aaae2595, type: 2}
-      propertyPath: m_TagString
-      value: enemi
-      objectReference: {fileID: 0}
-    - target: {fileID: 114621724942089128, guid: f08ddd8bcf3434cf497550c2aaae2595,
-        type: 2}
-      propertyPath: max_d
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1534973275269684, guid: f08ddd8bcf3434cf497550c2aaae2595, type: 2}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 114280428273714266, guid: f08ddd8bcf3434cf497550c2aaae2595,
-        type: 2}
-      propertyPath: speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114280428273714266, guid: f08ddd8bcf3434cf497550c2aaae2595,
-        type: 2}
-      propertyPath: room
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 114280428273714266, guid: f08ddd8bcf3434cf497550c2aaae2595,
         type: 2}
       propertyPath: room_manager
@@ -5205,36 +5170,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4041265769682466, guid: 668435abdea0e4f8898d888c1e64a625,
     type: 2}
   m_PrefabInternal: {fileID: 2094490895}
---- !u!1 &2114907045 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1534973275269684, guid: f08ddd8bcf3434cf497550c2aaae2595,
-    type: 2}
-  m_PrefabInternal: {fileID: 1840419236}
---- !u!61 &2114907052
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2114907045}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.6875, y: 0.78125}
-    newSize: {x: 0.6875, y: 0.78125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.6875, y: 0.78125}
-  m_EdgeRadius: 0
 --- !u!1 &2135762169
 GameObject:
   m_ObjectHideFlags: 0
