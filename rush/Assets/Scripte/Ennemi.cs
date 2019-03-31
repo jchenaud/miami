@@ -119,7 +119,7 @@ public class Ennemi : MonoBehaviour {
 				room = player.GetComponent<Player>().room;
 			}
 			if (posi != Vector2.zero)
-			{
+			{ 
 				vel = Vector2.zero;
 				target_dir = posi - (Vector2) transform.position;
 				vel = target_dir * speed;
