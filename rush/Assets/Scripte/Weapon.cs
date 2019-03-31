@@ -14,10 +14,11 @@ public class Weapon : MonoBehaviour
 	public string nameWeapon;
 	public AudioClip fireSound;
 	public AudioClip ejectSound;
+	public bool ennemy;
 	AudioSource audioSource;
 	float fireRateTime;
 	Sprite initSprite;
-	GameObject weaponPos;
+	public GameObject weaponPos;
 	Vector2 posThrow;
 	SpriteRenderer spriteRenderer;
 	float throwSpeed;
@@ -32,6 +33,10 @@ public class Weapon : MonoBehaviour
 
 	void Update ()
 	{
+		if (ennemy)
+		{
+			spriteRenderer.sprite = spriteGet;
+		}
 		if (weaponPos)
 		{
 			transform.position = weaponPos.transform.position;
@@ -71,7 +76,8 @@ public class Weapon : MonoBehaviour
 		go.transform.position = weaponPos.transform.position;
 		go.transform.rotation = weaponPos.transform.rotation;
 		go.GetComponent<Bullet>().speed = bulletSpeed;
-		ammos -= 1;
+		if (!ennemy)
+			ammos -= 1;
 	}
 	void OnTriggerStay2D(Collider2D other)
 	{
@@ -79,7 +85,7 @@ public class Weapon : MonoBehaviour
 			Destroy(other.gameObject);
 		if (other.gameObject.tag == "Player")
 		{
-			if (!weaponPos && Input.GetKeyDown(KeyCode.E))
+			if (!weaponPos && Input.GetKeyDown(KeyCode.E) && !ennemy)
 			{
 				audioSource.PlayOneShot(ejectSound, 0.1f);
 				player = other.gameObject.GetComponent<Player>();
