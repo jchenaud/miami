@@ -30,8 +30,7 @@ public class Bullet : MonoBehaviour
 		}
 		if (other.GetComponent<Ennemi>() != null)
 		{
-			Debug.Log("TEST");
-			// Destroy(other.gameObject);
+			Destroy(other.gameObject);
 		}
 	}
 	

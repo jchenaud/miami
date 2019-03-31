@@ -11,18 +11,24 @@ public class Player : MonoBehaviour
 	Rigidbody2D rb;
 	public static Player instance;
 	public static Action onWinGameEvent;
+	public static Action onLooseGameEvent;
 	public bool win;
+	public AudioClip clipWin;
+	public AudioClip clipLoose;
+	AudioSource audioSource;
 
 	public int room;
 	void Awake()
 	{
 		onWinGameEvent = null;
+		onLooseGameEvent = null;
 		instance = this;
 	}
 
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	void FixedUpdate()
@@ -58,10 +64,20 @@ public class Player : MonoBehaviour
 		Camera.main.transform.position = posCamera;
 	}
 
+	public void Die()
+	{
+		audioSource.PlayOneShot(clipLoose);
+		Debug.Log("loose");
+		if (onLooseGameEvent != null)
+			onLooseGameEvent();
+		Destroy(gameObject);
+	}
+
 	void OnCollisionEnter2D(Collision2D collisionInfo)
 	{
 		if (collisionInfo.gameObject.tag == "end car")
 		{
+			audioSource.PlayOneShot(clipWin);
 			Debug.Log("win");
 			if (onWinGameEvent != null)
 				onWinGameEvent();

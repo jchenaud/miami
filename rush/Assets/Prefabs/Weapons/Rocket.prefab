@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteGet: {fileID: 21300000, guid: e3140efe7137c48f8801a03d57bcc3d9, type: 3}
-  bullet: {fileID: 2846234632472087999, guid: 531bba0e7eeebe845905c7f3091d5f98, type: 2}
+  bullet: {fileID: 1718482451117850, guid: 55caad6bca7e04e36addfefa735f1580, type: 2}
   fireRate: 0.3
   bulletSpeed: 15
   ammos: 12
