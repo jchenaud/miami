@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 	public static Player instance;
 	public static Action onWinGameEvent;
 	public static Action onLooseGameEvent;
+	public static Action onShootGameEvent;
 	public bool win;
 	public AudioClip clipWin;
 	public AudioClip clipLoose;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
 	{
 		onWinGameEvent = null;
 		onLooseGameEvent = null;
+		onShootGameEvent = null;
 		instance = this;
 	}
 

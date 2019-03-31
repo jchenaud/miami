@@ -34,6 +34,7 @@ public class Ennemi : MonoBehaviour {
 		head.sprite = listHead[Random.Range(0, listHead.Count - 1)];
 		body.sprite = listBody[Random.Range(0, listBody.Count - 1)];
 		audioSource = GetComponent<AudioSource>();
+		Player.onShootGameEvent += CheckShoot;
 	}
 
 	public void Die()
@@ -44,6 +45,14 @@ public class Ennemi : MonoBehaviour {
 		head.sprite = null;
 		body.sprite = null;
 		Destroy(this.gameObject, clip.length);
+	}
+
+	void CheckShoot()
+	{
+		Debug.Log("shoot");
+		if (Vector3.Distance(transform.position, Player.instance.transform.position) <= 5.0f)
+			shoot = true;
+
 	}
 
 	public void attack()

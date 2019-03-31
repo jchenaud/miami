@@ -86,7 +86,11 @@ public class Weapon : MonoBehaviour
 		go.GetComponent<Bullet>().speed = bulletSpeed;
 		go.GetComponent<Bullet>().ennemy = ennemy;
 		if (!ennemy)
+		{
 			ammos -= 1;
+			if (Player.onShootGameEvent != null)
+				Player.onShootGameEvent();
+		}
 	}
 	void OnTriggerStay2D(Collider2D other)
 	{
