@@ -85,6 +85,12 @@ public class Ennemi : MonoBehaviour {
 				shoot =  true;
 				posi = Vector2.zero;
 		}
+		if (room == player.GetComponent<Player>().room && shoot == true)
+			{
+					fight = true;
+					shoot = false;
+					posi = Vector2.zero;
+			}
 		//  if(shoot == true  && room == player.GetComponent<Player>().room)
 		// {
 		// 	fight =  true;
@@ -115,6 +121,12 @@ public class Ennemi : MonoBehaviour {
 		else if (shoot)
 		{
 			// if (player_tmp_room != player.GetComponent<Player>().room)
+			// {
+			// 	room = player_tmp_room;
+			// 	player_tmp_room = player.GetComponent<Player>().room;
+			// 	posi = Vector2.zero;
+				
+			// }
 			// 	posi = Vector2.zero;
 			if(posi == Vector2.zero)
 			{
