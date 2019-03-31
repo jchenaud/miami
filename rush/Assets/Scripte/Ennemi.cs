@@ -12,6 +12,7 @@ public class Ennemi : MonoBehaviour {
 	public float speed;
 	Rigidbody2D  rb;
 	public bool fight = false;
+	public GameObject weaponPos;
 
 	public int room;
 	public GameObject room_manager;

@@ -14,7 +14,7 @@ public class RandomWeapon : MonoBehaviour
 		{
 			GetComponent<Ennemi>().weapon = go.GetComponent<Weapon>();
 			go.GetComponent<Weapon>().ennemy = true;
-			go.GetComponent<Weapon>().weaponPos = gameObject;
+			go.GetComponent<Weapon>().weaponPos = GetComponent<Ennemi>().weaponPos;
 		}
 	}
 }
