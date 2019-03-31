@@ -47,7 +47,7 @@ public class GameUi : MonoBehaviour
 	public void OnWin()
 	{
 		pannelClear.SetActive(true);
-		if (SceneManager.GetActiveScene().buildIndex > SceneManager.sceneCount)
+		if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1)
 			textNextLevel.text = "Menu";
 		textKill.text = string.Format("Kill : {0}", Player.instance.kill.ToString());
 	}
