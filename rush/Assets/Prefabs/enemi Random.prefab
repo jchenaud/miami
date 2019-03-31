@@ -350,6 +350,8 @@ MonoBehaviour:
   speed: 3
   fight: 0
   weaponPos: {fileID: 1732148326228288}
+  prefabBlood: {fileID: 1871349330871490, guid: 3f9a0884a003143e0bdf225ece97c8e1,
+    type: 2}
   room: 2
   room_manager: {fileID: 0}
   shoot: 0
@@ -387,7 +389,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -279186821
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 81d652493254845dab8916da4843c82b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -475,7 +477,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -279186821
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 99090477d5055427eb87bc1a91f115f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

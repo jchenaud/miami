@@ -50,6 +50,9 @@ TagManager:
   - name: Background
     uniqueID: 1608070125
     locked: 0
+  - name: Blood
+    uniqueID: 4282670059
+    locked: 0
   - name: Player
     uniqueID: 4015780475
     locked: 0
