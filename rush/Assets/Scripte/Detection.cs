@@ -37,7 +37,7 @@ public class Detection : MonoBehaviour {
 			Vector2 targetDir = player.transform.position - transform.position;
         	Vector2 forward = transform.up;
 			 angle = (Vector2.SignedAngle(targetDir, forward)) ;
-			Debug.Log(angle);
+			// Debug.Log(angle);
 			if(angle >= 180-fov || angle <= -180 + fov)
 			{
 				layer_mask = ~(LayerMask.GetMask("enemi","room"));
@@ -45,7 +45,7 @@ public class Detection : MonoBehaviour {
 				if(hit && hit.transform.tag == "Player")
 				{
 					ennemi.attack(); //Debug.Log("atack");
-					Debug.Log("atack");
+					// Debug.Log("atack");
 				}
 				// else
 				// 	Debug.Log("i cant see nothing : somthing betwen  : " + hit.transform.name);

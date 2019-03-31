@@ -61,7 +61,7 @@ public class Room_manager : MonoBehaviour {
 					}
 
 			}
-			return(Vector2.positiveInfinity);
+			return(Vector2.zero);
 
 	}
 

@@ -19,6 +19,7 @@ public class Ennemi : MonoBehaviour {
 
 	Vector2 vel;
 	Vector2 target_dir;
+	Vector2 posi;
 	void Start ()
 	{
 		fight = false;
@@ -38,8 +39,16 @@ public class Ennemi : MonoBehaviour {
 	// public float tmp;
 	// Update is called once per frame
 	void Update () {
-		if (fight == true)
+		if (room != player.GetComponent<Player>().room && fight ==  true)
 		{
+				fight =  false;
+				shoot =  true;
+				posi = Vector2.zero;
+		}
+		if (fight == true && shoot == false)
+		{
+			shoot =  false;
+			posi = Vector2.zero;
 			 vel = Vector2.zero;
 			 target_dir = player.transform.position - transform.position;
 			vel = target_dir * 1;
@@ -57,16 +66,17 @@ public class Ennemi : MonoBehaviour {
 			float angle = Mathf.Atan2(target_dir.y, target_dir.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.AngleAxis(angle + 90 , Vector3.forward);
 		}
-		// Debug.Log(room_manager.GetComponent<Room_manager>().all_room);
-		// Debug.Log(room);
-		// Debug.Log(player.name);
-		// Debug.Log(player.GetComponent<Player>().room);
 		else if (shoot)
 		{
-			Vector2 posi = new Vector2();
-			posi = room_manager.GetComponent<Room_manager>().nexto_find_position_door(room,player.GetComponent<Player>().room);
-			if (posi != Vector2.positiveInfinity)
+			if(posi == Vector2.zero)
 			{
+				posi = room_manager.GetComponent<Room_manager>().nexto_find_position_door(room,player.GetComponent<Player>().room);
+				room = player.GetComponent<Player>().room;
+			}
+			print(posi);
+			if (posi != Vector2.zero)
+			{
+				print("coucou");
 				vel = Vector2.zero;
 				target_dir = posi - (Vector2) transform.position;
 				vel = target_dir * speed;
@@ -74,15 +84,13 @@ public class Ennemi : MonoBehaviour {
 				float angle = Mathf.Atan2(target_dir.y, target_dir.x) * Mathf.Rad2Deg;
 				transform.rotation = Quaternion.AngleAxis(angle + 90 , Vector3.forward);
 				if (Vector2.Distance(transform.position, posi) < 0.2f){
-					room = player.GetComponent<Player>().room;
-					
-					 print("loock player");
 			 		target_dir = player.transform.position - transform.position;
 					angle = Mathf.Atan2(target_dir.y, target_dir.x) * Mathf.Rad2Deg;
 					transform.rotation = Quaternion.AngleAxis(angle +90 , Vector3.forward);
-					Debug.Break();
 					shoot = false;
-					fight =  true;
+					if (room == player.GetComponent<Player>().room)
+						fight =  true;
+					posi = Vector2.zero;
 				}
 			}
 
