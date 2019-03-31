@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 50173757776797928}
   - component: {fileID: 114356919365271402}
   - component: {fileID: 61122552891818418}
+  - component: {fileID: 114747320382266508}
   m_Layer: 8
   m_Name: enemi Random
   m_TagString: enemi
@@ -71,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1426681120466604}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.262, z: 0}
+  m_LocalPosition: {x: 0, y: 0.28, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4719675748301860}
@@ -97,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1650411052540056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.93, y: 7.36, z: 0}
+  m_LocalPosition: {x: 0.5, y: 8.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4588679357370756}
@@ -180,6 +181,25 @@ MonoBehaviour:
   patrouille_lst: {fileID: 0}
   pat_point: []
   speed: 2
+--- !u!114 &114747320382266508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1650411052540056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 377166210cdfc453384689d029e7b02b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  listWeapon:
+  - {fileID: 1289151450838752, guid: 0e8a9671a32f3498ab4b25b51d3dd78c, type: 2}
+  - {fileID: 1996068441341720, guid: fdeb827b24d6c406f94382cf49a6a1d7, type: 2}
+  - {fileID: 1805041555498344, guid: f57f94932da694ac7a569ce1d8a2a28d, type: 2}
+  - {fileID: 1444395848237856, guid: 2bb3a5e7b6c264b00a1cb0b6268e3961, type: 2}
+  - {fileID: 1006403899876040, guid: e97d750b4eda34a8184d9fde16054a96, type: 2}
+  - {fileID: 1816135881439100, guid: db3460989c1f048f1b238bd7f6f0e4af, type: 2}
+  ennemy: 1
 --- !u!114 &114846478490938624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -249,7 +269,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -279186821
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 81d652493254845dab8916da4843c82b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -337,7 +357,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -279186821
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 99090477d5055427eb87bc1a91f115f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
