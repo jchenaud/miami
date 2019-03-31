@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 	public AudioClip clipLoose;
 	AudioSource audioSource;
 	public int room;
-	bool die;
+	public bool die;
 
 	void Awake()
 	{
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
 
 	void Update ()
 	{
-		if (win)
+		if (win || die)
 			return ;
 		Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		Vector3 dir = pos - transform.position;
@@ -74,6 +74,7 @@ public class Player : MonoBehaviour
 		if (onLooseGameEvent != null)
 			onLooseGameEvent();
 		GetComponent<SpriteRenderer>().sprite = null;
+		die = true;
 	}
 
 	void OnCollisionEnter2D(Collision2D collisionInfo)

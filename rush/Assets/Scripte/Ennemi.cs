@@ -65,7 +65,7 @@ public class Ennemi : MonoBehaviour {
 	// public float tmp;
 	// Update is called once per frame
 	void Update () {
-		if (die)
+		if (die || Player.instance.die)
 			return ;
 		if (room != player.GetComponent<Player>().room && fight ==  true)
 		{
@@ -102,10 +102,8 @@ public class Ennemi : MonoBehaviour {
 				posi = room_manager.GetComponent<Room_manager>().nexto_find_position_door(room,player.GetComponent<Player>().room);
 				room = player.GetComponent<Player>().room;
 			}
-			print(posi);
 			if (posi != Vector2.zero)
 			{
-				print("coucou");
 				vel = Vector2.zero;
 				target_dir = posi - (Vector2) transform.position;
 				vel = target_dir * speed;
