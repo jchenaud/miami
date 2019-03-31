@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
 	[HideInInspector] public float speed;
 	public float lifeTime;
+	public bool ennemy;
 
 	void Start()
 	{
@@ -27,7 +28,13 @@ public class Bullet : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+		if (other.GetComponent<Ennemi>() != null)
+		{
+			Debug.Log("TEST");
+			// Destroy(other.gameObject);
+		}
 	}
+	
 
 	IEnumerator RoutineDestroy()
 	{
