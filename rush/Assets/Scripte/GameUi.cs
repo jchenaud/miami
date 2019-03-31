@@ -23,6 +23,7 @@ public class GameUi : MonoBehaviour
 	void Start()
 	{
 		Player.onWinGameEvent += OnWin;
+		Player.onLooseGameEvent += OnLoose;
 	}
 
 	void Update ()

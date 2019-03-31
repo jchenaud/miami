@@ -648,6 +648,7 @@ MonoBehaviour:
   textAmmoWeapon: {fileID: 955876689}
   textNextLevel: {fileID: 1074563328}
   pannelClear: {fileID: 1152371410}
+  pannelGameOver: {fileID: 2108249231}
 --- !u!1 &694938987
 GameObject:
   m_ObjectHideFlags: 0
