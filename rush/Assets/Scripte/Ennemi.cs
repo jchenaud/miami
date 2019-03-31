@@ -13,6 +13,7 @@ public class Ennemi : MonoBehaviour {
 	Rigidbody2D  rb;
 	public bool fight = false;
 	public GameObject weaponPos;
+	public GameObject prefabBlood;
 
 	public int room;
 	public GameObject room_manager;
@@ -42,6 +43,8 @@ public class Ennemi : MonoBehaviour {
 	{
 		if (die)
 			return ;
+		GameObject go = Instantiate(prefabBlood);
+		go.transform.position = transform.position;
 		Player.onShootGameEvent -= CheckShoot;
 		Player.instance.kill++;
 		AudioClip clip = listSoundDie[Random.Range(0, listSoundDie.Count - 1)];
