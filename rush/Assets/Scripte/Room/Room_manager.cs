@@ -51,11 +51,14 @@ public class Room_manager : MonoBehaviour {
 		List <int> l  = new List<int>();//find_connection(all_room[depart]);
 		// if(l.Contains(cible) == true)
 		// {
-			for (int i = 0; i < transform.childCount; i++) 
+			for (int i = 0; i < transform.GetChild(depart).transform.childCount; i++) 
 			{
-				child = transform.GetChild(i).gameObject;
-				if(child.tag == "door_chekpoint" && child.GetComponent<Room_checkpoint>().room_conect == cible)
+				child = transform.GetChild(depart).transform.GetChild(i).gameObject;
+					if(child.tag == "door_chekpoint" && child.GetComponent<Room_checkpoint>().room_conect == cible)
+					{
+
 						return(child.transform.position);
+					}
 
 			}
 			return(Vector2.positiveInfinity);

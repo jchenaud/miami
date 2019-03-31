@@ -18,7 +18,7 @@ public class Ennemi : MonoBehaviour {
 	void Start ()
 	{
 		fight = false;
-		player  = GameObject.FindGameObjectWithTag("Player");
+		player  = GameObject.Find("player");
 		room_manager  = GameObject.Find("Room_manager");
 
 		Debug.Log(player);
@@ -45,8 +45,10 @@ public class Ennemi : MonoBehaviour {
 			float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 			transform.rotation = Quaternion.AngleAxis(angle + 90 , Vector3.forward);
 		}
-		Debug.Log(room_manager.GetComponent<Room_manager>().all_room);
-		Debug.Log(room);
-		Debug.Log(room_manager.GetComponent<Room_manager>().nexto_find_position_door(room,player.GetComponent<Player>().room));
+		// Debug.Log(room_manager.GetComponent<Room_manager>().all_room);
+		// Debug.Log(room);
+		// Debug.Log(player.name);
+		// Debug.Log(player.GetComponent<Player>().room);
+		Debug.Log(room_manager.GetComponent<Room_manager>().nexto_find_position_door(room,player.GetComponent<Player>().room).x);
 	}
 }
