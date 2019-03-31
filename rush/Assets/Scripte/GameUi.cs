@@ -25,7 +25,6 @@ public class GameUi : MonoBehaviour
 	{
 		Player.onWinGameEvent += OnWin;
 		Player.onLooseGameEvent += OnLoose;
-		Debug.Log(SceneManager.sceneCountInBuildSettings);
 	}
 
 	void Update ()
