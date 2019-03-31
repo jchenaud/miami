@@ -25,6 +25,7 @@ public class GameUi : MonoBehaviour
 	{
 		Player.onWinGameEvent += OnWin;
 		Player.onLooseGameEvent += OnLoose;
+		Debug.Log(SceneManager.sceneCountInBuildSettings);
 	}
 
 	void Update ()
@@ -61,7 +62,7 @@ public class GameUi : MonoBehaviour
 	{
 		Scene scene = SceneManager.GetActiveScene();
 		int buildIndex = scene.buildIndex + 1;
-		SceneManager.LoadScene(buildIndex);
+		SceneManager.LoadScene(buildIndex % SceneManager.sceneCountInBuildSettings);
 	}
 
 	public void RestartLevel()
