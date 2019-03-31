@@ -67,7 +67,7 @@ public class Ennemi : MonoBehaviour {
 	// public float tmp;
 	// Update is called once per frame
 	void Update () {
-		if (die || Player.instance.die)
+		if (die || Player.instance.die || Player.instance.win)
 		{
 			rb.velocity = Vector2.zero;
 			return ;
