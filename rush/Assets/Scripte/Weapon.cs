@@ -93,7 +93,6 @@ public class Weapon : MonoBehaviour
 		if (!ennemy)
 		{
 			ammos -= 1;
-			Debug.Log("AAA");
 			if (Player.onShootGameEvent != null)
 				Player.onShootGameEvent();
 		}

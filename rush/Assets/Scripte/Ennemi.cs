@@ -53,9 +53,8 @@ public class Ennemi : MonoBehaviour {
 
 	void CheckShoot()
 	{
-		Debug.Log("test");
-		// if (Vector3.Distance(transform.position, Player.instance.transform.position) <= 5.0f)
-		// 	shoot = true;
+		if (Vector3.Distance(transform.position, Player.instance.transform.position) <= 20.0f)
+			shoot = true;
 	}
 
 	public void attack()
@@ -122,7 +121,6 @@ public class Ennemi : MonoBehaviour {
 					posi = Vector2.zero;
 				}
 			}
-
 		}
 	}
 }
