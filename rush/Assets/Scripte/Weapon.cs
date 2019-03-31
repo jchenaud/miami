@@ -75,6 +75,8 @@ public class Weapon : MonoBehaviour
 	}
 	void OnTriggerStay2D(Collider2D other)
 	{
+		if (nameWeapon == "Saber" && throwSpeed > 0.0f && other.GetComponent<Ennemi>())
+			Destroy(other.gameObject);
 		if (other.gameObject.tag == "Player")
 		{
 			if (!weaponPos && Input.GetKeyDown(KeyCode.E))
