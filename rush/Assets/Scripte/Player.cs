@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
 		Debug.Log("loose");
 		if (onLooseGameEvent != null)
 			onLooseGameEvent();
-		Destroy(gameObject);
+		GetComponent<SpriteRenderer>().sprite = null;
 	}
 
 	void OnCollisionEnter2D(Collision2D collisionInfo)

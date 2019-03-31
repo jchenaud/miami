@@ -71,7 +71,7 @@ public class Weapon : MonoBehaviour
 		audioSource.PlayOneShot(ejectSound, 0.3f);
 	}
 
-	void Shoot()
+	public void Shoot()
 	{
 		audioSource.PlayOneShot(fireSound, 0.3f);
 		fireRateTime = 0.0f;

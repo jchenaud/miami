@@ -16,6 +16,7 @@ public class Ennemi : MonoBehaviour {
 	public GameObject room_manager;
 
 	public bool shoot;
+	public Weapon weapon;
 
 	Vector2 vel;
 	Vector2 target_dir;
@@ -55,6 +56,7 @@ public class Ennemi : MonoBehaviour {
 				if (Vector2.Distance(transform.position, player.transform.position) < 4f)
 				{
 					rb.velocity = Vector2.zero;
+					weapon.Shoot();
 				}
 				else
 				{

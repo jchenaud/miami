@@ -12,6 +12,7 @@ public class RandomWeapon : MonoBehaviour
 		GameObject go = Instantiate(listWeapon[Random.Range(0, listWeapon.Count)], transform.position, transform.rotation);
 		if (ennemy)
 		{
+			GetComponent<Ennemi>().weapon = go.GetComponent<Weapon>();
 			go.GetComponent<Weapon>().ennemy = true;
 			go.GetComponent<Weapon>().weaponPos = gameObject;
 		}
