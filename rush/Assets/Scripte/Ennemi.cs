@@ -18,6 +18,7 @@ public class Ennemi : MonoBehaviour {
 
 	public bool shoot;
 	public Weapon weapon;
+	bool die;
 
 	AudioSource audioSource;
 	Vector2 vel;
@@ -34,23 +35,26 @@ public class Ennemi : MonoBehaviour {
 		head.sprite = listHead[Random.Range(0, listHead.Count - 1)];
 		body.sprite = listBody[Random.Range(0, listBody.Count - 1)];
 		audioSource = GetComponent<AudioSource>();
-		Player.onShootGameEvent += CheckShoot;
+		// Player.onShootGameEvent += CheckShoot;
 	}
 
 	public void Die()
 	{
+		if (die)
+			return ;
 		AudioClip clip = listSoundDie[Random.Range(0, listSoundDie.Count - 1)];
 		weapon.Throw(transform.position);
 		weapon.ennemy = false;
 		head.sprite = null;
 		body.sprite = null;
 		Destroy(this.gameObject, clip.length);
+		die = true;
 	}
 
 	void CheckShoot()
 	{
-		if (Vector3.Distance(transform.position, Player.instance.transform.position) <= 5.0f)
-			shoot = true;
+		// if (Vector3.Distance(transform.position, Player.instance.transform.position) <= 5.0f)
+		// 	shoot = true;
 	}
 
 	public void attack()
@@ -60,6 +64,8 @@ public class Ennemi : MonoBehaviour {
 	// public float tmp;
 	// Update is called once per frame
 	void Update () {
+		if (die)
+			return ;
 		if (room != player.GetComponent<Player>().room && fight ==  true)
 		{
 				fight =  false;
