@@ -54,7 +54,7 @@ public class Ennemi : MonoBehaviour {
 
 	void CheckShoot()
 	{
-		if (Vector3.Distance(transform.position, Player.instance.transform.position) <= 20.0f)
+		if (Vector3.Distance(transform.position, Player.instance.transform.position) <= 20.0f && room_manager.GetComponent<Room_manager>().nexto_find_position_door(room,player.GetComponent<Player>().room) != Vector2.zero)
 			shoot = true;
 	}
 
