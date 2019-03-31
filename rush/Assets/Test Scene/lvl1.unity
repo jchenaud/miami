@@ -2368,6 +2368,7 @@ MonoBehaviour:
   textKill: {fileID: 449752261}
   pannelClear: {fileID: 1152371410}
   pannelGameOver: {fileID: 2108249231}
+  pannelWeappon: {fileID: 1188593611}
 --- !u!4 &641854103 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4186685922471000, guid: e17f84f8e84e04fca965c0f41ad1bfae,

@@ -14,6 +14,7 @@ public class GameUi : MonoBehaviour
 	public Text textKill;
 	public GameObject pannelClear;
 	public GameObject pannelGameOver;
+	public GameObject pannelWeappon;
 
 	void Awake()
 	{
@@ -25,6 +26,7 @@ public class GameUi : MonoBehaviour
 	{
 		Player.onWinGameEvent += OnWin;
 		Player.onLooseGameEvent += OnLoose;
+		Player.onShootGameEvent += OnShoot;
 	}
 
 	void Update ()
@@ -42,6 +44,11 @@ public class GameUi : MonoBehaviour
 			else
 				textAmmoWeapon.text = weaponCurrent.ammos.ToString();
 		}
+	}
+
+	public void OnShoot()
+	{
+		pannelWeappon.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-10, 10));
 	}
 
 	public void OnWin()

@@ -2780,6 +2780,7 @@ MonoBehaviour:
   textKill: {fileID: 449752261}
   pannelClear: {fileID: 1152371410}
   pannelGameOver: {fileID: 2108249231}
+  pannelWeappon: {fileID: 1188593611}
 --- !u!1001 &652136903
 Prefab:
   m_ObjectHideFlags: 0
