@@ -12,6 +12,7 @@ public class GameUi : MonoBehaviour
 	public Text textAmmoWeapon;
 	public Text textNextLevel;
 	public GameObject pannelClear;
+	public GameObject pannelGameOver;
 
 	void Awake()
 	{
@@ -48,10 +49,22 @@ public class GameUi : MonoBehaviour
 			textNextLevel.text = "Menu";
 	}
 
+	public void OnLoose()
+	{
+		pannelGameOver.SetActive(true);
+	}
+
 	public void NextLevel()
 	{
 		Scene scene = SceneManager.GetActiveScene();
 		int buildIndex = scene.buildIndex + 1;
+		SceneManager.LoadScene(buildIndex);
+	}
+
+	public void RestartLevel()
+	{
+		Scene scene = SceneManager.GetActiveScene();
+		int buildIndex = scene.buildIndex;
 		SceneManager.LoadScene(buildIndex);
 	}
 }

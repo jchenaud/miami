@@ -79,6 +79,7 @@ public class Weapon : MonoBehaviour
 		{
 			if (!weaponPos && Input.GetKeyDown(KeyCode.E))
 			{
+				audioSource.PlayOneShot(ejectSound, 0.1f);
 				player = other.gameObject.GetComponent<Player>();
 				if (player.haveWeapon)
 					return ;
