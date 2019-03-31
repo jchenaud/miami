@@ -76,7 +76,12 @@ public class Weapon : MonoBehaviour
 
 	public void Shoot()
 	{
-		if (fireRateTime <= fireRate && (ammos <= 0 || !infinityAmmos))
+		if (!infinityAmmos)
+		{
+			if (!ennemy && ammos <= 0)
+				return ;
+		}
+		if (fireRateTime <= fireRate)
 			return ;
 		audioSource.PlayOneShot(fireSound, 0.3f);
 		fireRateTime = 0.0f;
@@ -88,6 +93,7 @@ public class Weapon : MonoBehaviour
 		if (!ennemy)
 		{
 			ammos -= 1;
+			Debug.Log("AAA");
 			if (Player.onShootGameEvent != null)
 				Player.onShootGameEvent();
 		}

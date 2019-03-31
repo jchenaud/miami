@@ -17,8 +17,8 @@ public class Player : MonoBehaviour
 	public AudioClip clipWin;
 	public AudioClip clipLoose;
 	AudioSource audioSource;
-
 	public int room;
+
 	void Awake()
 	{
 		onWinGameEvent = null;
