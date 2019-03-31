@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ennemi : MonoBehaviour {
 	public List<Sprite> listHead;
 	public List<Sprite> listBody;
+	public List<AudioClip> listSoundDie;
 	public SpriteRenderer head;
 	public SpriteRenderer body;
 	GameObject player;
@@ -18,6 +19,7 @@ public class Ennemi : MonoBehaviour {
 	public bool shoot;
 	public Weapon weapon;
 
+	AudioSource audioSource;
 	Vector2 vel;
 	Vector2 target_dir;
 	Vector2 posi;
@@ -31,14 +33,17 @@ public class Ennemi : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 		head.sprite = listHead[Random.Range(0, listHead.Count - 1)];
 		body.sprite = listBody[Random.Range(0, listBody.Count - 1)];
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	public void Die()
 	{
-		// Vector3 pos = transform.position;
+		AudioClip clip = listSoundDie[Random.Range(0, listSoundDie.Count - 1)];
 		weapon.Throw(transform.position);
 		weapon.ennemy = false;
-		Destroy(this.gameObject);
+		head.sprite = null;
+		body.sprite = null;
+		Destroy(this.gameObject, clip.length);
 	}
 
 	public void attack()
