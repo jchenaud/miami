@@ -47,8 +47,8 @@ public class Detection : MonoBehaviour {
 					ennemi.attack(); //Debug.Log("atack");
 					// Debug.Log("atack");
 				}
-				// else
-				// 	Debug.Log("i cant see nothing : somthing betwen  : " + hit.transform.name);
+				else
+				 	Debug.Log("i cant see nothing : somthing betwen  : " + hit.transform.name);
 			}
 			// else
 			// 	Debug.Log("i cant see nothing");
