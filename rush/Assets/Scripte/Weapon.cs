@@ -43,7 +43,7 @@ public class Weapon : MonoBehaviour
 		{
 			transform.position = weaponPos.transform.position;
 			transform.rotation = weaponPos.transform.rotation;
-			if (!ennemy)
+			if (!ennemy && !Player.instance.die && !Player.instance.win)
 			{
 				if (Input.GetMouseButton(0))
 					Shoot();

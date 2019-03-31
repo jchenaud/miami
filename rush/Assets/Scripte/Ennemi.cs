@@ -44,6 +44,7 @@ public class Ennemi : MonoBehaviour {
 		Player.onShootGameEvent -= CheckShoot;
 		Player.instance.kill++;
 		AudioClip clip = listSoundDie[Random.Range(0, listSoundDie.Count - 1)];
+		audioSource.PlayOneShot(clip);
 		weapon.Throw(transform.position);
 		weapon.ennemy = false;
 		head.sprite = null;
