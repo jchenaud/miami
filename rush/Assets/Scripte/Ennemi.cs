@@ -51,6 +51,7 @@ public class Ennemi : MonoBehaviour {
 		head.sprite = null;
 		body.sprite = null;
 		Destroy(this.gameObject, clip.length);
+		GetComponent<BoxCollider2D>().enabled = false;
 		die = true;
 	}
 
